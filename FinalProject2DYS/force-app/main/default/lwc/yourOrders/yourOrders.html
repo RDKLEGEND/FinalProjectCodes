@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Your Order">
+        
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped" aria-label="Example table of Opportunities with striped rows">
+            <tbody>
+            <tr>
+                <th>ProductName</th>
+                <th>ProductPrice/Unit</th>
+                <th>ProductQuantity</th>
+                <th>Description</th>
+            </tr>
+    <template for:each={rrec.data} for:item="pro" for:index="index">
+        <tr key={pro.Id}>
+            <td>{pro.Name}  </td>
+            <td>{pro.price__c}  </td>
+            <td>{pro.Quantity__c}  </td>
+            <td>{pro.Description__c}</td>
+        </tr>
+    </template>
+</tbody>
+</table>
+<b>Total Amount::{trec.data}</b><br/>
+    </lightning-card>
+</template>

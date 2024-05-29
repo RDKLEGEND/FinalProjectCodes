@@ -1,0 +1,25 @@
+.banner-container {
+    width: 1140px;
+    height: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+ 
+.banner {
+    display: flex;
+    transition: transform 2s ease;
+}
+ 
+.banner-image {
+    flex-shrink: 0;
+    width: 100%;
+}
+ 
+/* @keyframes moveBanner {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+} */

@@ -1,0 +1,108 @@
+<template>
+    <div >
+        <div class="cus-container">
+        <img src={imageurl} height="50" width="50" onclick={openCart} style="cursor: pointer;">
+        <template if:true={showNotification}>
+            <div class="notif-dot"></div>
+        </template>
+    </div>
+        <template if:true={isCartOpen}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                <lightning-modal-header label="Your cart">
+            </lightning-modal-header>
+            <lightning-modal-body>
+                <b>Total items in your cart::{cartValue}</b><br/>
+                <!-- <b>Product Name:{prname}</b> -->
+                <template if:true={showProductDetails}>
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped" aria-label="Example table of Opportunities with striped rows">
+                        <tbody>
+                        <tr>
+                            <th>ProductName</th>
+                            <th>ProductPrice/Unit</th>
+                            <th>ProductQuantity</th>
+                            <th>Description</th>
+                        </tr>
+                <template for:each={rrec.data} for:item="pro" for:index="index">
+                    <tr key={pro.Id}>
+                        <td>{pro.Name}  </td>
+                        <td>{pro.price__c}  </td>
+                        <td>{pro.Quantity__c}  </td>
+                        <td>{pro.Description__c}</td>
+                    </tr>
+                </template>
+            </tbody>
+            </table>
+            <b>Total Amount::{trec.data}</b><br/>
+            </template>
+            </lightning-modal-body>
+            <lightning-modal-footer>
+                <lightning-button
+                    class="slds-button slds-m-left_x-small"
+                    variant="brand"
+                    label="Checkout"
+                    onclick={checkoutchange}
+                ></lightning-button>
+                <lightning-button
+                    class="slds-button slds-m-left_x-small"
+                    variant="brand"
+                    label="Close"
+                    onclick={closechange}
+                ></lightning-button>
+            </lightning-modal-footer>
+            </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        <template if:true={isCheckOut}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                <lightning-modal-header label="Your cart">
+            </lightning-modal-header>
+            <lightning-modal-body>
+                <b>Items in your cart::{cartValue}</b>
+                <lightning-input type="text" label="Name" class="validate" placeholder="Enter your Name" onchange={namechange} pattern="[A-Za-z\s]+" message-when-pattern-mismatch="Please enter a valid Name" required></lightning-input><br/>
+                <lightning-input type="text" label="Address" class="validate" placeholder="Enter the address" onchange={addresschange} pattern="[A-Za-z0-9._-,/]" message-when-pattern-mismatch="Please enter a valid address" required></lightning-input><br/>
+                <lightning-input type="tel" label="Phone" class="validate" placeholder="Enter the phone number" onchange={phonechange} pattern="[6-9]{1}[0-9]{9}" message-when-pattern-mismatch="Please enter a 10 digit phone number" required></lightning-input><br/>
+                <lightning-input type="email" label="Email" class="validate" placeholder="Enter the Email address" onchange={emailchange} pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" message-when-pattern-mismatch="Please enter a valid email" required></lightning-input><br/>
+                <lightning-combobox name="Payment method" label="Payment method" placeholder="Select a method" options={options} value={selectedvalue} onchange={paychange} required></lightning-combobox><br/>
+            </lightning-modal-body>
+            <lightning-modal-footer>
+                <lightning-button
+                    class="slds-button slds-m-left_x-small"
+                    variant="brand"
+                    label="Confirm Order"
+                    onclick={confirmchange}
+                ></lightning-button>
+                <lightning-button
+                    class="slds-button slds-m-left_x-small"
+                    variant="brand"
+                    label="Cancel"
+                    onclick={cancelchange}
+                ></lightning-button>
+            </lightning-modal-footer>
+            </div>
+            </section>
+        </template>
+        <template if:true={isEnd}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                <lightning-modal-header label="Success">
+            </lightning-modal-header>
+            <lightning-modal-body>
+                <b>Your order is confirmed</b><br/><br/>
+                <b>Your Order will be delivered within two days</b><br/><br/>
+            </lightning-modal-body>
+            <lightning-modal-footer>
+                <lightning-button
+                    class="slds-button slds-m-left_x-small"
+                    variant="brand"
+                    label="Ok"
+                    onclick={endchange}
+                ></lightning-button>
+            </lightning-modal-footer>
+            </div>
+            </section>
+        </template>
+    </div>
+</template>

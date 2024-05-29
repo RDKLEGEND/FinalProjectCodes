@@ -1,0 +1,23 @@
+<template>
+    <lightning-card>
+    <nav class="slds-nav-vertical">
+        <ul class="slds-list_horizontal slds-has-block-links_space">
+            <li class="slds-list__item">
+                <a href="#" onclick={handleNavigate} data-target="home">Home</a>
+            </li>
+            <li class="slds-list__item">
+                <a href="#" onclick={handleNavigate} data-target="orders">Orders</a>
+            </li>
+            <li class="slds-list__item">
+                <a href="#" onclick={handleNavigate} data-target="invoice">Invoice</a>
+            </li>
+        </ul>
+    </nav>
+</lightning-card>
+    <div class="slds-box">
+        <!-- Content area where the selected option's content will be displayed -->
+        <template if:true={selectedOption}>
+            <p>{selectedOption} content will go here</p>
+        </template>
+    </div>
+</template>

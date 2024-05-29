@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title={pname}>
+        <img src={imageurl} height="200" width="200"></img><br/><br/>
+         PRICE:: {pprice}<br/><br/>
+         DESCRIPTION:: {pdescription}<br/><br/>
+        <lightning-button label="Add to cart" variant="success" onclick={cartchange}></lightning-button>
+        &nbsp;&nbsp;
+        <b>Items in cart:: {cartprop}</b>
+        &nbsp;&nbsp;
+        <lightning-button label="-" variant="success" onclick={cartremove}></lightning-button>
+        </lightning-card>
+</template>

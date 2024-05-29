@@ -1,0 +1,14 @@
+.notif-dot{
+    width: 10px;
+    height:10px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.cus-container{
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}

@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title={pname}>
+        <img src={imageurl} height="200" width="200"></img><br/><br/>
+         PRICE:: {pprice}<br/><br/>
+         DESCRIPTION:: {pdescription}<br/><br/>
+        <lightning-button label="Add to cart" variant="success" onclick={cartchange}></lightning-button>
+        &nbsp;&nbsp;
+        <b>Items in cart:: {cartprop}</b>
+        &nbsp;&nbsp;
+        <!-- <lightning-button label="-" variant="success" onclick={cartremove}></lightning-button> -->
+        <lightning-button-stateful variant="success" label-when-off="-" label-when-on="-"
+                             selected={isSelected} onclick={cartremove}>
+                        </lightning-button-stateful>
+        <!-- <lightning-button label="Buy" variant="success" onclick={buychange}></lightning-button>
+        <template if:true={openOrClose}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                <lightning-modal-header label="Confirm your order">
+            </lightning-modal-header>
+            <lightning-modal-body>
+                 modal content specified in LightningModal component 
+                <lightning-input type="text" label="Name" placeholder="Enter your Name" onchange={namechange}></lightning-input><br/>
+                <lightning-input type="text" label="Address" placeholder="Enter the address" onchange={addresschange}></lightning-input><br/>
+                <lightning-input type="text" label="Phone" placeholder="Enter the phone number" onchange={phonechange}></lightning-input><br/>
+                <lightning-input type="text" label="Email" placeholder="Enter the Email address" onchange={emailchange}></lightning-input><br/>
+            </lightning-modal-body>
+            <lightning-modal-footer>
+                <lightning-button
+                    class="slds-button slds-m-left_x-small"
+                    variant="brand"
+                    label="Confirm"
+                    onclick={confirmchange}
+                ></lightning-button>
+                <lightning-button
+                    class="slds-button slds-m-left_x-small"
+                    variant="brand"
+                    label="Cancel"
+                    onclick={cancelchange}
+                ></lightning-button>
+            </lightning-modal-footer></div></section>
+        </template> -->
+    </lightning-card>
+</template>
